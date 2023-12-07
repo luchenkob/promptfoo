@@ -1,0 +1,27 @@
+namespace: promptfoo
+
+postgres-database:
+  defines: runnable
+  inherits: postgresql/db
+  metadata:
+    name: postgres-database
+    description: Postgres database required by the promptfoo application.
+    icon: https://www.postgresql.org/media/img/about/press/elephant.png
+  variables:
+    db_name:
+      type: string
+      value: monk
+      description: ''
+    db_pass:
+      type: string
+      value: adminpassword
+      description: ''
+    db_user:
+      type: string
+      value: monk
+      description: ''
+
+stack:
+  defines: group
+  members:
+    - promptfoo/postgres-database
